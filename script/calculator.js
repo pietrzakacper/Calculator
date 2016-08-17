@@ -15,7 +15,7 @@ var calculator=(function(){
 
     function addToCaluculation(event){
       finalString+=(typeof event === "string")?event:$(event.target).html();
-      render();
+      _render();
     }
 
     return {add: addToCaluculation};
