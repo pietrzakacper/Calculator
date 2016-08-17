@@ -1,0 +1,41 @@
+body {
+    background-color: black;
+    font-family: monospace;
+    font-size: 15px;
+    color: aqua;
+}
+.device {
+    margin-top: 50px;
+    border: 1px solid teal;
+}
+.title {
+    margin-top: 10px;
+    font-weight: bolder;
+}
+.screen {
+    min-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    text-align: right;
+    padding: 13px 10px 10px 10px;
+}
+.key {
+    height: inherit;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+}
+.key:hover {
+    border-color: cyan;
+    cursor: pointer;
+}
+.key-row {
+    margin: 0px;
+    padding: 0px;
+}
+.key-container {
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+}
