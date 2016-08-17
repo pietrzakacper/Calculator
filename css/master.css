@@ -39,3 +39,15 @@ body {
     margin: 0px;
     padding: 0px;
 }
+.clicked {
+    background-color: darkcyan;
+}
+
+.binary, .func, .equals{
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.digit{
+  font-weight: lighter;
+}
