@@ -26,7 +26,7 @@ body {
     padding: 5px;
     border: 1px solid black;
 }
-.key:hover {
+.key-hover:hover {
     border-color: cyan;
     cursor: pointer;
 }
