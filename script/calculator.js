@@ -1,5 +1,7 @@
 var calculator = (function() {
     var input = '0';
+    var operatorClicked = false;
+
 
     //cache DOM
     var $screen = $('.screen');
@@ -19,6 +21,20 @@ var calculator = (function() {
     }
 
     function addToCaluculation(event) {
+        console.log("----------------");
+        if ($(event.target).hasClass('binary')) {
+            if (operatorClicked) {
+                console.log("return bin");
+                return;
+            }
+            console.log("bin");
+            operatorClicked = true;
+        }
+
+        if ($(event.target).hasClass('digit') || $(event.target).hasClass('comma')) {
+            operatorClicked = false;
+        }
+
         if (input === '0') {
             input = $(event.target).html();
         } else {
@@ -28,20 +44,24 @@ var calculator = (function() {
         _render();
     }
 
-    function calculate() {
+    function calculate(event) {
+        if ($(event.target).hasClass('equals') && operatorClicked) {
+            console.log("return eq");
+            return;
+        }
         input = input.replace('x', '*');
 
         var str = eval(input);
 
         console.log(input + " = " + str);
 
-        input = str;
+        input = (""+str);
         _render();
     }
 
     function reset(event) {
         var sign = $(event.target).html();
-        input = "";
+        input = "0";
 
         $keyboard.find(".binary").addClass("key-hover");
         $keyboard.find(".clicked").removeClass("clicked");
