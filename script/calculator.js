@@ -44,7 +44,7 @@ var calculator = (function() {
 				}
 
         if (input === '0') {
-            input = $target.html();
+            if(!$target.hasClass('binary'))input = $target.html();
         } else {
             input += $target.html();
         }
