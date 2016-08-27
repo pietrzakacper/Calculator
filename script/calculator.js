@@ -1,7 +1,7 @@
 var calculator = (function() {
     var input = '0';
     var operatorClicked = false;
-
+		var dotClicked = false;
 
     //cache DOM
     var $screen = $('.screen');
@@ -21,13 +21,14 @@ var calculator = (function() {
     }
 
     function addToCaluculation(event) {
-        console.log("----------------");
-        if ($(event.target).hasClass('binary')) {
+			console.log('-----------------');
+
+				if ($(event.target).hasClass('binary')) {
             if (operatorClicked) {
-                console.log("return bin");
                 return;
             }
-            console.log("bin");
+						console.log('dot is allowed');
+            dotClicked = false;
             operatorClicked = true;
         }
 
@@ -35,12 +36,23 @@ var calculator = (function() {
             operatorClicked = false;
         }
 
+				if($(event.target).hasClass('comma')){
+					if(!dotClicked){
+						console.log('clicked and can be clicked');
+						dotClicked=true;
+					} else{
+						console.log('clicked and return');
+						return;
+					}
+
+				}
+
         if (input === '0') {
             input = $(event.target).html();
         } else {
             input += $(event.target).html();
         }
-
+				console.log('-----------------');
         _render();
     }
 
@@ -62,7 +74,7 @@ var calculator = (function() {
     function reset(event) {
         var sign = $(event.target).html();
         input = "0";
-
+				dotClicked = false;
         $keyboard.find(".binary").addClass("key-hover");
         $keyboard.find(".clicked").removeClass("clicked");
         _render();
